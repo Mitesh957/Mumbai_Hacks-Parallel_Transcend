@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment Done</title>
+  
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+  
+  <div id="successModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="icon-box">
+            <i class="material-icons">&#xE876;</i>
+          </div>
+          <h4 class="modal-title">Payment Successful!</h4>
+        </div>
+        <div class="modal-body">
+          <p class="text-center">Your Donation has been processed successfully. Payment ID: <span id="payment-id-success"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success btn-block" data-dismiss="modal" onclick="navigateToSuccessPage()">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div id="successPage" class="hidden">
+    <div class="container text-center">
+      <h2>Payment Successful</h2>
+      <p>Your Donation has been processed successfully. Payment ID: <span id="payment-id-page"></span></p>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+
+  <script src="payment.js"></script>
+</body>
+</html>

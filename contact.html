@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Messages | Firebase</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-red-100 flex justify-center items-center min-h-screen">
+
+    <div class="bg-white rounded-lg p-4 shadow-md w-2048">
+        <h1 class="text-blue-500 text-2xl text-center mb-4">Contact Us</h1>
+        <form action="" id="contactForm">
+            <div class="alert bg-red-500 text-white p-2 rounded-lg mb-4 hidden">Your message sent</div>
+
+            <div class="mb-4">
+                <input type="text" id="name" placeholder="Your name...." class="w-full p-2 border rounded-lg">
+            </div>
+
+            <div class="mb-4">
+                <input type="email" id="emailid" placeholder="Your Email....." class="w-full p-2 border rounded-lg">
+            </div>
+
+            <div class="mb-4">
+                <textarea id="msgContent" cols="30" rows="10" placeholder="Questions & Suggestions are welcomed! Be Happy" class="w-full p-2 border rounded-lg resize-none"></textarea>
+            </div>
+
+            <div>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 cursor-pointer">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="mail.js"></script>
+</body>
+
+</html>

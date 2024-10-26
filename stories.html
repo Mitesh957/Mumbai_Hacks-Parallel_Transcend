@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Learning Success Stories</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .bg-primary {
+            background-color: #ffedeb; /* Soft pink */
+        }
+        .bg-secondary {
+            background-color: #ffe4c4; /* Bisque */
+        }
+        .bg-accent {
+            background-color: #ffcccb; /* Light red */
+        }
+        .text-primary {
+            color: #3b3b3b; /* Dark gray */
+        }
+        .text-secondary {
+            color: #555555; /* Medium gray */
+        }
+        .button-primary {
+            background-color: #ff6f61; /* Coral */
+            color: white;
+        }
+        .button-primary:hover {
+            background-color: #ff5a50; /* Darker coral */
+        }
+        .scroller-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 16px 0;
+        }
+        .scroller {
+            display: flex;
+            scroll-snap-type: x mandatory;
+            align-items: center;
+        }
+        .scroller-item {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            width: 300px;
+            margin-right: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            text-align: center;
+        }
+        .scroller::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-primary text-primary">
+
+    <nav class="bg-secondary p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-primary"><a href="index1.html">Shiksha AI</a></h1>
+            <div class="hidden md:flex space-x-4">
+                <a href="index1.html" class="text-primary hover:text-accent">Home</a>
+                
+                <a href="contact.html" class="text-primary hover:text-accent">Contact Us</a>
+            </div>
+            <button class="button-primary px-4 py-2 rounded-md"><a href="login.html">Sign In</a></button>
+        </div>
+    </nav>
+
+    <header class="bg-accent text-white p-8 mt-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-black">Success Stories</h2>
+            <p class="text-lg mt-2 text-black">Discover how adaptive learning has transformed the way users learn!</p>
+        </div>
+    </header>
+
+    <section class="container mx-auto p-6">
+        <div class="scroller-container">
+            <div class="scroller" id="scroller">
+                <!-- Story content will be dynamically injected here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stories = [
+                {
+                    title: "John's Mastery of Math",
+                    description: "John started with basic algebra, and thanks to the adaptive quiz platform, he now excels at calculus. The platform adjusted difficulty in real-time to match his progress.",
+                    imageUrl: "Quiz1.jpg"
+                },
+                {
+                    title: "Sophia's Journey Through History",
+                    description: "Sophia was struggling with remembering dates and events. With multimodal flashcards and personalized paths, she has now developed a deep understanding of world history.",
+                    imageUrl: "Quiz1.jpg"
+                },
+                {
+                    title: "Mark's Programming Breakthrough",
+                    description: "Mark used the platform to improve his coding skills. Flashcards with code snippets, real-time feedback, and video tutorials helped him master Python in just a few months.",
+                    imageUrl: "Quiz1.jpg"
+                },
+                {
+                    title: "Anna's Language Learning Success",
+                    description: "With the help of audio-based flashcards and spaced repetition, Anna quickly became fluent in Spanish, gaining confidence in speaking and writing.",
+                    imageUrl: "Quiz1.jpg"
+                },
+                {
+                    title: "David's Scientific Exploration",
+                    description: "David struggled with science concepts, but using video flashcards and interactive quizzes, he now loves learning about biology and chemistry.",
+                    imageUrl: "Quiz1.jpg"
+                },
+                {
+                    title: "John's Mastery of Math",
+                    description: "John started with basic algebra, and thanks to the adaptive quiz platform, he now excels at calculus. The platform adjusted difficulty in real-time to match his progress.",
+                    imageUrl: "Quiz1.jpg"
+                },
+                {
+                    title: "Sophia's Journey Through History",
+                    description: "Sophia was struggling with remembering dates and events. With multimodal flashcards and personalized paths, she has now developed a deep understanding of world history.",
+                    imageUrl: "Quiz1.jpg"
+                },
+                {
+                    title: "Mark's Programming Breakthrough",
+                    description: "Mark used the platform to improve his coding skills. Flashcards with code snippets, real-time feedback, and video tutorials helped him master Python in just a few months.",
+                    imageUrl: "Quiz1.jpg"
+                },
+                {
+                    title: "Anna's Language Learning Success",
+                    description: "With the help of audio-based flashcards and spaced repetition, Anna quickly became fluent in Spanish, gaining confidence in speaking and writing.",
+                    imageUrl: "Quiz1.jpg"
+                },
+                {
+                    title: "David's Scientific Exploration",
+                    description: "David struggled with science concepts, but using video flashcards and interactive quizzes, he now loves learning about biology and chemistry.",
+                    imageUrl: "Quiz1.jpg"
+                }
+            ];
+
+            const scroller = document.getElementById('scroller');
+
+            stories.forEach(story => {
+                const storyCard = document.createElement('div');
+                storyCard.className = 'scroller-item';
+                storyCard.innerHTML = `
+                    <img src="${story.imageUrl}" alt="${story.title}" class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <h4 class="text-xl font-bold mb-2">${story.title}</h4>
+                    <p class="text-secondary">${story.description}</p>
+                `;
+                scroller.appendChild(storyCard);
+            });
+        });
+    </script>
+</body>
+</html>

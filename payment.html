@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="payment.css">
+  <style>
+    
+    body {
+      font-family: 'Varela Round', sans-serif;
+    }
+    .modal-confirm {
+      color: #636363;
+      width: 325px;
+    }
+    .modal-confirm .modal-content {
+      padding: 20px;
+      border-radius: 5px;
+      border: none;
+    }
+    .modal-confirm .modal-header {
+      border-bottom: none;
+      position: relative;
+    }
+    .modal-confirm h4 {
+      text-align: center;
+      font-size: 26px;
+      margin: 30px 0 -15px;
+    }
+    .modal-confirm .form-control, .modal-confirm .btn {
+      min-height: 40px;
+      border-radius: 3px;
+    }
+    .modal-confirm .close {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+    }
+    .modal-confirm .modal-footer {
+      border: none;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+    .modal-confirm .icon-box {
+      color: #fff;
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      top: -70px;
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      z-index: 9;
+      background: #82ce34;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+    .modal-confirm .icon-box i {
+      font-size: 58px;
+      position: relative;
+      top: 3px;
+    }
+    .modal-confirm.modal-dialog {
+      margin-top: 80px;
+    }
+    .modal-confirm .btn {
+      color: #fff;
+      border-radius: 4px;
+      background: #82ce34;
+      text-decoration: none;
+      transition: all 0.4s;
+      line-height: normal;
+      border: none;
+    }
+    .modal-confirm .btn:hover, .modal-confirm .btn:focus {
+      background: #6fb32b;
+      outline: none;
+    }
+    .trigger-btn {
+      display: inline-block;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+<body>
+  <main class="page payment-page">
+    <section class="payment-form dark">
+      <div class="container">
+        <div class="block-heading">
+          <h2>Payment</h2>
+          <p>Donation Page</p>
+        </div>
+        <form>
+          <div class="products">
+            <h3 class="title">Checkout</h3>
+            <div class="item">
+              <label for="tax-1">Donation Amount:</label>
+              <input type="number" id="tax-1" class="form-control" placeholder="Enter Donation amount" oninput="calculateTotal()">
+          </div>
+          Total: <span class="price" id="total-amount">INR 0.00</span>          
+          </div>
+          <div class="card-details">
+            <h3 class="title">Initialize Payment</h3>
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <button type="button" class="btn btn-primary btn-block" onclick="paymentProcess()">Proceed</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="icon-box">
+            <i class="material-icons">&#xE876;</i>
+          </div>
+          <h4 class="modal-title">Awesome!</h4>
+        </div>
+        <div class="modal-body">
+          <p class="text-center">Your Donation has been confirmed. Check your email for details.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCqTWhstnYIMAWxFKlFmhqV5kXfDsMwm7Q",
+      authDomain: "work-vibe.firebaseapp.com",
+      databaseURL: "https://work-vibe-default-rtdb.firebaseio.com",
+      projectId: "work-vibe",
+      storageBucket: "work-vibe.appspot.com",
+      messagingSenderId: "657553447517",
+      appId: "1:657553447517:web:b31d13b5e033c32d7a8bb4",
+      measurementId: "G-HEN3V080PD"
+    };
+
+
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+  </script>
+
+  
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  
+  <script>
+    function calculateTotal() {
+      
+      var productAmount = parseFloat(document.getElementById("tax-1").value) || 0;
+  
+      console.log("Product Amount:", productAmount);
+  
+      
+      document.getElementById("total-amount").textContent = `INR ${productAmount.toFixed(2)}`;
+  }
+  
+  
+  </script>
+  <script src="payment.js"></script>
+</body>
+</html>

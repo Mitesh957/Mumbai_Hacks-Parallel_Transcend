@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawMatch - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Sign Up for PawMatch</h1>
+        <form id="signupForm">
+            <label for="newUsername">Username</label>
+            <input type="text" id="newUsername" required>
+
+            <label for="newPassword">Password</label>
+            <input type="password" id="newPassword" required>
+
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const newUsername = document.getElementById("newUsername").value;
+            const newPassword = document.getElementById("newPassword").value;
+
+            
+            localStorage.setItem("username", newUsername);
+            localStorage.setItem("password", newPassword);
+
+            alert("Signup successful! Please login.");
+            window.location.href = "login.html"; 
+        });
+    </script>
+</body>
+</html>
+
