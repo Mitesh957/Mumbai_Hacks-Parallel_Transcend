@@ -1,0 +1,85 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.container {
+    max-width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#video-call-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#local-video, #remote-video {
+    border-radius: 8px;
+    width: 48%; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+    background: #ffffff;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.call-action-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.call-action-div button {
+    margin: 0 10px;
+    background-color: #e74c3c;
+    transition: background-color 0.3s ease;
+}
+
+.call-action-div button:hover {
+    background-color: #c0392b;
+}
+
+button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
